@@ -23,3 +23,4 @@ class ExamplePlugin: Plugin() {
         }
     }
 }
+
