@@ -1,10 +1,10 @@
-package com.lagradost.cloudstream3.extractors
+package com.example
 
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import org.jsoup.nodes.Element
 
-class DariaMTVLatino : MainAPI() {
+class ExampleProvider : MainAPI() {
     // Apuntamos a la página que me pasaste
     override var mainUrl = "https://dariamtv.blogspot.com"
     override var name = "Daria MTV"
