@@ -5,7 +5,6 @@ import com.lagradost.cloudstream3.utils.*
 import org.jsoup.nodes.Element
 
 class ExampleProvider : MainAPI() {
-    // Apuntamos a la web de Daria
     override var mainUrl = "https://dariamtv.blogspot.com"
     override var name = "Daria MTV"
     override val hasMainPage = true
@@ -34,11 +33,10 @@ class ExampleProvider : MainAPI() {
         val episodes = document.select("a").filter { 
             it.text().contains("Capítulo", ignoreCase = true) 
         }.mapIndexed { index, element ->
-            Episode(
-                data = element.attr("href"),
-                name = element.text(),
-                episode = index + 1
-            )
+            newEpisode(element.attr("href")) {
+                this.name = element.text()
+                this.episode = index + 1
+            }
         }
 
         return newTvSeriesLoadResponse(title, url, TvType.TvSeries, episodes) {
